@@ -6,25 +6,28 @@
         $cpf = "";
         $msg = "";
 
-        if($_SERVER['REQUEST_METHOD']=='POST'){
+        if($_SERVER['REQUEST_METHOD']=='GET'){
             $matricula = $_GET["matricula"];
             $msg = "";
             echo " matricula: " . $matricula;
 
-            $arcAluno = fopen("php/aluno.txt" , "r") or die("erro ao abrir o arquivo!");
+            $arcAluno = fopen("aluno.txt" , "r") or die("erro ao abrir o arquivo!");
 
-            while(!feof($arcAluno)){
-            
-                $colunadados = explode(";",$linha);
+          while(!feof($arcAluno)){
 
-                if($colunadados[2] = $matricula){
-                    $nome = $colunadados[0];
-                    $email = $colunadados[1];
-                    $cpf = $colunadados[3];
-                    break;
-                }
+    $linha = fgets($arcAluno);
 
-            }
+    $colunadados = explode(";", $linha);
+
+    if($colunadados[2] == $matricula){
+
+        $nome = $colunadados[0];
+        $email = $colunadados[1];
+        $cpf = $colunadados[3];
+
+        break;
+    }
+}
             fclose($arcAluno);
             $msg = "Deu certo!";
         }
@@ -46,7 +49,7 @@
     <li><a href="incluir_alunos.php">Incluir Aluno</a></li>
     <li><a href="listar_alunos.php">Lista de Alunos</a></li>
    
-    <form action="../php/alterar_alunos.php" method="POST">
+    <form action="alterar_aluno.php" method="GET">
          Nome : <input type="text" name="nome" value='<?php echo $nome ?>'> <br>
         E-mail : <input type="text" name="email" value='<?php echo $email ?>'> <br>
         Matrícula : <input type="text" name="matricula" value='<?php echo $matricula ?>'> <br>
