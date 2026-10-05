@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         if ($i + 1 == $certa) {
             $certa = 1;
         } else {
-            $certa = 2;
+            $certa = 0;
         }
 
         $linha = $idResposta . ";" . $idPergunta . ";" . $resposta[$i] . ";" . $certa . "\n";
