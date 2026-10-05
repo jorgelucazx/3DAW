@@ -90,7 +90,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
           <input type="radio" name="certa" value="3" required>
         <input type="text" name="r3" required>
         <br><br>
-          <input type="radio" name="certa" value="4 " required>
+          <input type="radio" name="certa" value="4" required>
         <input type="text" name="r4" required>
         <br><br>
 
