@@ -42,12 +42,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     for($i = 0 ; $i < 4 ; $i++){
         
         if ($i + 1 == $certa) {
-            $certa = 1;
+            $correta= 1;
         } else {
-            $certa = 0;
+            $correta= 0;
         }
 
-        $linha = $idResposta . ";" . $idPergunta . ";" . $resposta[$i] . ";" . $certa . "\n";
+        $linha = $idResposta . ";" . $idPergunta . ";" . $resposta[$i] . ";" . $correta . "\n";
         fwrite($arcResposta, $linha);
 
         $idResposta = $idResposta + 1;
