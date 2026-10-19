@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Calcular(){
+
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        let op = document.getElementById("op").value;
+
+        console.log(a);
+        console.log(b);
+        console.log(op);
+
+        let msg = "Calcular " + a + " " + op + " "  +b;
+
+        
+        document.getElementById("msg").innerHTML = msg;
+
+        
+
+        let xmlhttp = new XMLHttpRequest();
+
+        console.log("1");
+
+        xmlhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                console.log("Chegou a reposta OK:" + this.responseText);
+                console.log("2");
+            }
+            else if(this.readyState < 4){
+                console.log("3 :" + this.readyState);
+            }
+            else{
+                console.log("Requisiçao falhou : " + this.readyState);
+            }
+        }
+
+        console.log("4");
+         xmlhttp.open("GET", "http://localhost:3000/index.php?a=" + a + "&b=" + b + "&op=" + op);
+
+         xmlhttp.send();
+         console.log("Enviado!");
+         console.log("5");
+
+
+}   
+    </script>
+</head>
+<body>
+    <h1><center>CALCULADORA</center></h1>
+
+    <form name="formCalc" id="formCalc" method="GET">
+        <table>
+            <tr>
+                <td>Num 1:<input type="text" name="num1" id="a"></td>
+                <td>Operador:<input type="text" name="op" id="op"></td>
+                <td>Num 2:<input type="text" name="num2" id="b"></td>
+                <td><input type="button" value="Enviar" onclick="Calcular()"></td>
+            </tr>
+        </table>
+    </form>
+    <br><br>
+
+    <p id="msg"></p>
+   
+</body>
+</html>
