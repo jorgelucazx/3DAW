@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Usuarios</title>
+    <link rel="stylesheet" href="../STYLE/style.css">
+    <script src="../JS/include.js"></script>
+</head>
+<body>
+        <h1><center>Incluir Usuários</center></h1>
+
+        <div id="form">
+            <form action="../PHP/usuarios/includeUser.php" method="GET">
+                <table>
+                    <tr>
+                         <td>
+                                Nome : <input type="text" name="name" id="name">
+                           </td>
+                       
+                    </tr>
+                    <tr> 
+                            <td>
+                                Email : <input type="text" name="email" id="email">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Matrícula : <input type="text" name="matricula" id="matricula">
+                        </td>
+                    </tr>
+                </table>
+                        <input type="button" value="Enviar" onclick="cadastrar()">
+            </form>
+        </div>
+        
+</body>
+</html>
